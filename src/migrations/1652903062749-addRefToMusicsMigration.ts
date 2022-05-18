@@ -1,6 +1,6 @@
 import { MigrationInterface, QueryRunner, TableForeignKey } from "typeorm";
 
-export class AddReferencesOnOrderProductsTable1652100842776
+export class addRefToMusicsMigration1652903062749
   implements MigrationInterface
 {
   public async up(queryRunner: QueryRunner): Promise<void> {

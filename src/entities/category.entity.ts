@@ -2,7 +2,7 @@ import { Entity, Column, PrimaryColumn, DataSource } from "typeorm";
 import { v4 as uuid } from "uuid";
 
 @Entity()
-export class Category {
+export class Categories {
   @PrimaryColumn("uuid")
   readonly id: string;
 

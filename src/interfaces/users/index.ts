@@ -8,3 +8,8 @@ export interface IUserCreate {
   pix: string;
   age: number;
 }
+
+export interface IUserLogin {
+  email: string;
+  password: string;
+}

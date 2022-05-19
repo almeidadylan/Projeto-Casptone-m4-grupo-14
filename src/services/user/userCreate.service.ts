@@ -1,4 +1,4 @@
-import { Users } from "../../entities/user.entity";
+import { Users } from "../../entities/users.entity";
 import { IUserCreate } from "../../interfaces/users";
 import { AppDataSource } from "../../data-source";
 import bcrypt from "bcrypt";
@@ -26,9 +26,9 @@ const userCreateService = async ({
   user.name = name;
   user.email = email;
   user.password = bcrypt.hashSync(password, 10);
-  user.cpf = bcrypt.hashSync(cpf, 11);
+  user.CPF = bcrypt.hashSync(cpf, 11);
   user.birth_date = birth_date;
-  user.phone = phone;
+  user.phone = phone + "";
   user.pix = pix;
   user.age = age;
 

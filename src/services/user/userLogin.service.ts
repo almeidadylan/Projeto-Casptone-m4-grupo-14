@@ -1,8 +1,8 @@
 import { AppDataSource } from "../../data-source";
-import { Users } from "../../entities/user.entity";
+import { Users } from "../../entities/users.entity";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
-import { IUserLogin } from "../../interfaces/users";
+import { IUserLogin } from "../../interfaces/users/index";
 
 const userLoginService = async ({ email, password }: IUserLogin) => {
   const userRepository = AppDataSource.getRepository(Users);

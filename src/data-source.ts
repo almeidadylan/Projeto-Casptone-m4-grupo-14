@@ -3,19 +3,31 @@ import { DataSource } from "typeorm";
 import path from "path";
 require("dotenv").config({ path: path.resolve(__dirname, "../.env") });
 
-export const AppDataSource = new DataSource({
+export const AppDataSource =  process.env.NODE_ENV === "test"
+? new DataSource({
+    type: "sqlite",
+    database: ":memory:",
+    entities: ["src/models/*.ts"],
+    synchronize: true,
+  })
+: new DataSource({
   type: "postgres",
-  host: process.env.HOST,
-  port: 5432,
-
-  username: process.env.POSTGRES_USER,
-  password: process.env.POSTGRES_PWD,
-  database: process.env.POSTGRES_DB,
-
+  host: "localhost",
+  url: process.env.DATABASE_URL,
   synchronize: false,
   logging: true,
-  entities: ["src/entities/*.ts"],
-  migrations: ["src/migrations/*.ts"],
+  ssl:
+  process.env.NODE_ENV === "production"
+    ? { rejectUnauthorized: false }
+    : false,
+entities:
+  process.env.NODE_ENV === "production"
+    ? ["dist/src/models/*.js"]
+    : ["src/models/*.ts"],
+migrations:
+  process.env.NODE_ENV === "production"
+    ? ["dist/src/migrations/*.js"]
+    : ["src/migrations/*.ts"],
 });
 
 AppDataSource.initialize()

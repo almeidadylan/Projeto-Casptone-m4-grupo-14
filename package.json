@@ -6,6 +6,7 @@
   "author": "Lorenzo Marques <lorenzo.marques246@gmail.com>",
   "license": "MIT",
   "scripts": {
+    "build": "tsc",
     "dev": "ts-node-dev src/app.ts",
     "start": "ts-node src/app.ts",
     "typeorm": "typeorm-ts-node-commonjs"

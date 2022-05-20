@@ -1,5 +1,5 @@
 import express from "express";
-import routes from "./routers/routes";
+import Routes from "./routers/routes";
 
 const app = express();
 
@@ -7,7 +7,7 @@ const port = process.env.PORT || 3000;
 
 app.use(express.json());
 
-app.use(routes);
+app.use(Routes);
 
 app.listen(port, () => {
     console.log(`server rodando na porta ${port}`)

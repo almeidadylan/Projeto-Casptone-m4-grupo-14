@@ -4,7 +4,7 @@ import deleteCategoryController from "../controllers/categories/deleteCategory.c
 import listCategoriesController from "../controllers/categories/listCategories.controller";
 import userCreateController from "../controllers/users/userCreate.controller";
 import userLoginController from "../controllers/users/userLogin.controller";
-import listCategoriesByNameController from "../controllers/categories/listCaregoriesByName.controller";
+import listCategoriesByNameOrIdController from "../controllers/categories/listCaregoriesByName.controller";
 
 const routes = Router();
 
@@ -13,6 +13,6 @@ routes.post("/users/login", userLoginController);
 routes.post("/categories", createCategoryController);
 routes.delete("/categories/:id", deleteCategoryController);
 routes.get("/categories", listCategoriesController);
-routes.get("/categories/:name_id", listCategoriesByNameController);
+routes.get("/categories/:name_id", listCategoriesByNameOrIdController);
 
 export default routes;

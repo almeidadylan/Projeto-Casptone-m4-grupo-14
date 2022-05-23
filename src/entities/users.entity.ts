@@ -1,4 +1,4 @@
-import { Entity, Column, PrimaryColumn, DataSource } from "typeorm";
+import { Entity, Column, PrimaryColumn, DataSource, ManyToMany, OneToMany, ManyToOne } from "typeorm";
 import { v4 as uuid } from "uuid";
 
 @Entity()

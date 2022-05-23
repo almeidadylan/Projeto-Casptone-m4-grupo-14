@@ -1,34 +1,33 @@
 import { DataSource } from "typeorm";
 
-import path from "path";
+const path = require("path");
 require("dotenv").config({ path: path.resolve(__dirname, "../.env") });
-
-export const AppDataSource =  process.env.NODE_ENV === "test"
-? new DataSource({
-    type: "sqlite",
-    database: ":memory:",
-    entities: ["src/models/*.ts"],
-    synchronize: true,
-  })
-: new DataSource({
-  type: "postgres",
-  host: "localhost",
-  url: process.env.DATABASE_URL,
-  synchronize: false,
-  logging: true,
-  ssl:
-  process.env.NODE_ENV === "production"
-    ? { rejectUnauthorized: false }
-    : false,
-entities:
-  process.env.NODE_ENV === "production"
-    ? ["dist/src/models/*.js"]
-    : ["src/models/*.ts"],
-migrations:
-  process.env.NODE_ENV === "production"
-    ? ["dist/src/migrations/*.js"]
-    : ["src/migrations/*.ts"],
-});
+export const AppDataSource =
+  process.env.NODE_ENV === "test"
+    ? new DataSource({
+        type: "sqlite",
+        database: ":memory:",
+        entities: ["src/entities/*.ts"],
+        synchronize: true,
+      })
+    : new DataSource({
+        type: "postgres",
+        url: process.env.DATABASE_URL,
+        synchronize: false,
+        logging: true,
+        ssl:
+          process.env.NODE_ENV === "production"
+            ? { rejectUnauthorized: false }
+            : false,
+        entities:
+          process.env.NODE_ENV === "production"
+            ? ["dist/entities/*.js"]
+            : ["src/entities/*.ts"],
+        migrations:
+          process.env.NODE_ENV === "production"
+            ? ["dist/migrations/*.js"]
+            : ["src/migrations/*.ts"],
+      });
 
 AppDataSource.initialize()
   .then(() => {

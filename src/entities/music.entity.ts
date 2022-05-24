@@ -17,8 +17,6 @@ export class Music {
   @Column()
   name: string;
 
-  pix: string;
-
   @Column()
   url: string;
 

@@ -1,13 +1,10 @@
-import { Entity, Column, PrimaryColumn, ManyToOne, OneToMany } from "typeorm";
+import { Entity, Column, PrimaryColumn, DataSource, ManyToMany, OneToMany, ManyToOne } from "typeorm";
 import { v4 as uuid } from "uuid";
-import { Music } from "./music.entity";
+
 @Entity()
 export class Users {
   @PrimaryColumn("uuid")
   readonly id: string;
-
-  @OneToMany(() => Music, (music) => music.user)
-  musics: Music[];
 
   @Column()
   name: string;
@@ -39,3 +36,4 @@ export class Users {
     }
   }
 }
+

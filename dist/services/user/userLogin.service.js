@@ -26,7 +26,7 @@ const userLoginService = ({ email, password }) => __awaiter(void 0, void 0, void
     if (!bcrypt_1.default.compareSync(password, account.password)) {
         throw new Error("Wrong email/password");
     }
-    const token = jsonwebtoken_1.default.sign({ email: email }, String(process.env.JWT_SECRET), {
+    const token = jsonwebtoken_1.default.sign({ email: email }, String(process.env.SECRET_KEY || "default"), {
         expiresIn: "1d",
     });
     return token;

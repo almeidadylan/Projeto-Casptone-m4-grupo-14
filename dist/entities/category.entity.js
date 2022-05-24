@@ -9,10 +9,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Category = void 0;
+exports.Categories = void 0;
 const typeorm_1 = require("typeorm");
 const uuid_1 = require("uuid");
-let Category = class Category {
+const music_entity_1 = require("./music.entity");
+let Categories = class Categories {
     constructor() {
         if (!this.id) {
             this.id = (0, uuid_1.v4)();
@@ -22,13 +23,18 @@ let Category = class Category {
 __decorate([
     (0, typeorm_1.PrimaryColumn)("uuid"),
     __metadata("design:type", String)
-], Category.prototype, "id", void 0);
+], Categories.prototype, "id", void 0);
+__decorate([
+    (0, typeorm_1.ManyToMany)(() => music_entity_1.Music, (music) => music.category),
+    __metadata("design:type", Array)
+], Categories.prototype, "musics", void 0);
 __decorate([
     (0, typeorm_1.Column)(),
     __metadata("design:type", String)
-], Category.prototype, "name", void 0);
-Category = __decorate([
+], Categories.prototype, "name", void 0);
+Categories = __decorate([
     (0, typeorm_1.Entity)(),
     __metadata("design:paramtypes", [])
-], Category);
-exports.Category = Category;
+], Categories);
+exports.Categories = Categories;
+

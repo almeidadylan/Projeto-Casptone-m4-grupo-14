@@ -1,28 +1,34 @@
-KenzieFy: Api de musicas.
+<h1 align="center">KenzieFy</h1>
+ <p align="center"> <a href="#Sobre"> Sobre </a>  -  <a href="#Integrantes"> Integrantes </a>  -  <a href="#Rotas"> Rotas </a> </p>
 
 Esta aplicação foi feita sem fins lucrativos para upload e consulta de musicas sem direitos autorais.
+<br>
 
-Sobre a aplicação: 
+# Sobre
 
  - Está é uma api de musicas sem direitos autorais onde é possivel, escutar,
 fazer download, ver os dados da musica e do seu autor, criar contas, fazer upload de musicas, login, criar playlist, atualizar as musicas que fez upload, deletar o usuario e/ou suas musicas.
 
  - Para fazer a consulta de musicas e dos seus autores, não é necessário fazer login ou ter conta.
 
- - Para fazer uplaod de alguma musica no banco de dados é necessário ter conta cadastrada.
+ - Para fazer upload de alguma musica no banco de dados é necessário ter conta cadastrada.
+<br>
 
 
-Integrantes: 
- - André Rodrigues da Silveira.
- - Daniel Rodrigues.
- - Dylan Almeida.
- - Lorenzo Marques.
- - Márcio Castro.
+# Integrantes
+ - <a href="https://github.com/andrejubi">André Rodrigues da Silveira.</a> <br>
+ - <a href="https://github.com/danielrodriguesdnl">Daniel Rodrigues.</a> <br>
+ - <a href="https://github.com/almeidadylan">Dylan Almeida.</a> <br>
+ - <a href="https://github.com/LorenzoMarques">Lorenzo Marques.</a> <br>
+ - <a href="https://github.com/mcastroneto">Márcio Castro.</a> <br>
+<br>
+
+url base da aplicação no heroku: https://capstone-m4-grupo-14.herokuapp.com/
+
+Tabela de conteudos: 
 
 
-url base da aplicação no heroku: "https://capstone-m4-grupo-14.herokuapp.com/".
-
-Rotas:
+# Rotas
 
 1.0 - GET
 
@@ -84,8 +90,8 @@ Atenção! É necessário ter um token de autorização para acessar essa rota.
 Atenção! É necessário ter um token de autorização para acessar essa rota.
 
 4.3 - Para deletar um usuario, utilize a rota "/user/<user_id>".
-2.5 - Para classificar uma musica de 1 a 5 estrelas, utilize a rota "/rating/<music_id>".
 Atenção! É necessário ter um token de autorização para acessar essa rota.
+
 
 
 

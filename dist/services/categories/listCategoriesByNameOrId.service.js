@@ -9,12 +9,18 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const data_source_1 = require("../data-source");
-const users_entity_1 = require("../entities/users.entity");
-const testeService = () => __awaiter(void 0, void 0, void 0, function* () {
-    const userRepository = yield data_source_1.AppDataSource.getRepository(users_entity_1.Users);
-    const users = yield userRepository.find();
-    console.log("era pra ser users", users);
-    return users;
+const data_source_1 = require("../../data-source");
+const category_entity_1 = require("../../entities/category.entity");
+const listCategoriesByNameOrIdService = ({ name_id }) => __awaiter(void 0, void 0, void 0, function* () {
+    const userRepository = data_source_1.AppDataSource.getRepository(category_entity_1.Categories);
+    const categories = yield userRepository.find();
+    let category = categories.find((category) => category.name === name_id);
+    if (!category) {
+        category = categories.find((category) => category.id === name_id);
+    }
+    if (!category) {
+        throw new Error("Category not Found");
+    }
+    return category;
 });
-exports.default = testeService;
+exports.default = listCategoriesByNameOrIdService;

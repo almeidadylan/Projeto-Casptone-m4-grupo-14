@@ -12,6 +12,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.Categories = void 0;
 const typeorm_1 = require("typeorm");
 const uuid_1 = require("uuid");
+const music_entity_1 = require("./music.entity");
 let Categories = class Categories {
     constructor() {
         if (!this.id) {
@@ -23,6 +24,10 @@ __decorate([
     (0, typeorm_1.PrimaryColumn)("uuid"),
     __metadata("design:type", String)
 ], Categories.prototype, "id", void 0);
+__decorate([
+    (0, typeorm_1.ManyToMany)(() => music_entity_1.Music, (music) => music.category),
+    __metadata("design:type", Array)
+], Categories.prototype, "musics", void 0);
 __decorate([
     (0, typeorm_1.Column)(),
     __metadata("design:type", String)

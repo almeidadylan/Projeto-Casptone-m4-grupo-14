@@ -12,15 +12,16 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const teste_service_1 = __importDefault(require("../services/teste.service"));
-const testeController = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+const listCategories_service_1 = __importDefault(require("../../services/categories/listCategories.service"));
+const listCategoriesController = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const teste = yield (0, teste_service_1.default)();
-        console.log("testndo", teste);
-        return res.status(200).json({ message: "deu tudo certo", teste: teste });
+        const categories = yield (0, listCategories_service_1.default)();
+        return res.status(200).json(categories);
     }
     catch (err) {
-        return res.status(450).json("algo de errado não está certo!");
+        if (err instanceof Error) {
+            return res.status(400).send({ error: err.name, message: err.message });
+        }
     }
 });
-exports.default = testeController;
+exports.default = listCategoriesController;

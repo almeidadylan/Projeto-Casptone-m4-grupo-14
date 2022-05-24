@@ -12,6 +12,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.Music = void 0;
 const typeorm_1 = require("typeorm");
 const uuid_1 = require("uuid");
+const category_entity_1 = require("./category.entity");
+const users_entity_1 = require("./users.entity");
 let Music = class Music {
     constructor() {
         if (!this.id) {
@@ -23,6 +25,14 @@ __decorate([
     (0, typeorm_1.PrimaryColumn)("uuid"),
     __metadata("design:type", String)
 ], Music.prototype, "id", void 0);
+__decorate([
+    (0, typeorm_1.ManyToOne)(() => users_entity_1.Users),
+    __metadata("design:type", users_entity_1.Users)
+], Music.prototype, "user", void 0);
+__decorate([
+    (0, typeorm_1.ManyToMany)(() => category_entity_1.Categories),
+    __metadata("design:type", category_entity_1.Categories)
+], Music.prototype, "category", void 0);
 __decorate([
     (0, typeorm_1.Column)(),
     __metadata("design:type", String)

@@ -3,7 +3,6 @@ import { IUpload } from "../../interfaces/upload";
 import { v4 as uuid } from "uuid";
 
 const uploadMusicController = async (request: Request, res: Response) => {
-    console.log(request.file)
     try {
         const { originalname, key, size, location  } = (request as any).file;
         

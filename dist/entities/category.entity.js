@@ -37,3 +37,4 @@ Categories = __decorate([
     __metadata("design:paramtypes", [])
 ], Categories);
 exports.Categories = Categories;
+

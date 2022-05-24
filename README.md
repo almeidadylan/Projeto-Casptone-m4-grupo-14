@@ -1,11 +1,16 @@
 <h1 align="center">KenzieFy</h1>
- <p align="center"> <a href="#Sobre"> Sobre </a>  -  <a href="#Integrantes"> Integrantes </a>  -  <a href="#Rotas"> Rotas </a> </p>
+ <p align="center"> 
+ <a href="#Sobre"> Sobre </a>  -  
+ <a href="#Integrantes"> Integrantes </a>  -  
+ <a href="#Rotas"> Rotas </a> -
+ <a href="#Tecnologias">Tecnologias</a>
+ </p>
 
-Esta aplicação foi feita sem fins lucrativos para upload e consulta de musicas sem direitos autorais.
 <br>
 
 # Sobre
 
+ - Esta aplicação foi feita sem fins lucrativos para upload e consulta de musicas sem direitos autorais.
  - Está é uma api de musicas sem direitos autorais onde é possivel, escutar,
 fazer download, ver os dados da musica e do seu autor, criar contas, fazer upload de musicas, login, criar playlist, atualizar as musicas que fez upload, deletar o usuario e/ou suas musicas.
 
@@ -25,14 +30,32 @@ fazer download, ver os dados da musica e do seu autor, criar contas, fazer uploa
 
 url base da aplicação no heroku: https://capstone-m4-grupo-14.herokuapp.com/
 
-Tabela de conteudos: 
+# Tabela de conteudo
+<!--ts-->
+   * [test1](#Sobre)
+   * [teste2](#tabela-de-conteudo)
+   * [teste3](#instalacao)
+   * [Como usar](#como-usar)
+      * [Pre Requisitos](#pre-requisitos)
+      * [Local files](#local-files)
+      * [Remote files](#remote-files)
+      * [Multiple files](#multiple-files)
+      * [Combo](#combo)
+   * [Tests](#testes)
+   * [Tecnologias](#tecnologias)
+<!--te--> 
 
 
 # Rotas
 
 1.0 - GET
 
-1.1 - Para ler os dados de todas As Musicas, utilize a rota GET "/musics".
+``GET /musics - formato de resposta - status 201``
+```json
+{
+    "TESTE": "TESTE"
+}
+```
 
 1.2 - Para ler os dados de uma musica especifica e do seu autor, utilize a rota "/musics/<music_id>".
 
@@ -91,6 +114,26 @@ Atenção! É necessário ter um token de autorização para acessar essa rota.
 
 4.3 - Para deletar um usuario, utilize a rota "/user/<user_id>".
 Atenção! É necessário ter um token de autorização para acessar essa rota.
+
+#  Tecnologias
+
+ - <a href="https://www.typescriptlang.org/">Typescript</a>
+ - <a href="https://nodejs.org/en/">NodeJs</a>
+ - <a href="https://yarnpkg.com/">Yarn</a>
+ - <a href="https://git-scm.com/">Git</a>
+ - <a href="https://github.com">GitHub</a>
+ - <a href="https://www.npmjs.com/package/multer">Multer</a>
+ - <a href="https://www.npmjs.com/package/multer-s3">Multer-s3</a>
+ - <a href="https://aws.amazon.com/pt/s3/">AWS-S3</a>
+ - <a href="https://www.npmjs.com/package/aws-sdk">AWS-SDK</a>
+ - <a href="https://heroku.com">Heroku</a>
+ - <a href="https://www.postgresql.org/">PostgreSQL</a>
+ - <a href="https://www.npmjs.com/package/uuid">uuid</a>
+ - <a href="https://expressjs.com/pt-br/">Express</a>
+ - <a href="https://typeorm.io/">Typeorm</a>
+ - <a href="https://jwt.io/">jwt</a>
+ - <a href="https://www.npmjs.com/package/bcrypt">Bycript</a>
+ - <a href="https://www.npmjs.com/package/pg">Pg</a>
 
 
 

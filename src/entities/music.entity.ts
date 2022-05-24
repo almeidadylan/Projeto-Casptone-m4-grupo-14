@@ -1,6 +1,6 @@
 import { Entity, Column, PrimaryColumn, DataSource, ManyToOne, ManyToMany } from "typeorm";
 import { v4 as uuid } from "uuid";
-import { Category } from "./category.entity";
+import { Categories } from "./category.entity";
 import { Users } from "./users.entity";
  
 @Entity()
@@ -11,8 +11,8 @@ export class Music {
   @ManyToOne(() => Users)
   user: Users;
 
-  @ManyToMany(() => Category)
-  category: Category;
+  @ManyToMany(() => Categories)
+  category: Categories;
 
   @Column()
   name: string;

@@ -3,7 +3,7 @@ import { v4 as uuid } from "uuid";
 import { Music } from "./music.entity"
 
 @Entity()
-export class Category {
+export class Categories {
   @PrimaryColumn("uuid")
   readonly id: string;
 

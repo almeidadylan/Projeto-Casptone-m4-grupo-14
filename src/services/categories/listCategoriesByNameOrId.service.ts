@@ -19,3 +19,4 @@ const listCategoriesByNameOrIdService = async ({ name_id }: INameOrId) => {
   return category;
 };
 export default listCategoriesByNameOrIdService;
+

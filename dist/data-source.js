@@ -34,3 +34,4 @@ exports.AppDataSource.initialize()
     console.error("Error during Data Source Initialization", err);
 });
 // Gerar tabelas no banco de dados yarn typeorm migration:run -d src/data-source.ts
+

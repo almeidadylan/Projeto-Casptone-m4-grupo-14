@@ -1,10 +1,18 @@
 <h1 align="center">KenzieFy</h1>
- <p align="center"> 
- <a href="#Sobre"> Sobre </a>  -  
- <a href="#Integrantes"> Integrantes </a>  -  
- <a href="#Rotas"> Rotas </a> -
- <a href="#Tecnologias">Tecnologias</a>
- </p>
+
+
+ # Tabela de conteúdo
+<!--ts-->
+   * [Sobre](#Sobre)
+   * [Integrantes](#Integrantes)
+   * [Aplicação](#Aplicação)
+   * [Rotas](#Rotas)<br>
+     * [GET](#GET) 
+     * [POST](#POST)
+     * [PATCH](#PATCH) 
+     * [DELETE](#DELETE)  
+   * [Tecnologias](#Tecnologias)
+<!--te--> 
 
 <br>
 
@@ -28,38 +36,62 @@ fazer download, ver os dados da musica e do seu autor, criar contas, fazer uploa
  - <a href="https://github.com/mcastroneto">Márcio Castro.</a> <br>
 <br>
 
-url base da aplicação no heroku: https://capstone-m4-grupo-14.herokuapp.com/
+# Aplicação
 
-# Tabela de conteudo
-<!--ts-->
-   * [test1](#Sobre)
-   * [teste2](#tabela-de-conteudo)
-   * [teste3](#instalacao)
-   * [Como usar](#como-usar)
-      * [Pre Requisitos](#pre-requisitos)
-      * [Local files](#local-files)
-      * [Remote files](#remote-files)
-      * [Multiple files](#multiple-files)
-      * [Combo](#combo)
-   * [Tests](#testes)
-   * [Tecnologias](#tecnologias)
-<!--te--> 
+url base da aplicação no heroku: https://capstone-m4-grupo-14.herokuapp.com/
 
 
 # Rotas
 
-1.0 - GET
+# <p align="center">GET</p>
 
-``GET /musics - formato de resposta - status 201``
+ 1.1 - Para listar todas as musicas, utilize a a rota: <br>
+``GET /musics - formato de resposta - status 200``
+```json
+[
+    {
+        "id":"357b3141-b69a-4321-8cfa-a69f828c88fb",
+        "id_autor": "657b15a8-20ab-4834-a468-e6b967bfeda5",
+        "category": "eletronic",
+        "name": "Cartoon - C U Again.mp3",
+        "key": "bd029002e172debc15590de8d2182ecb-Cartoon - C U Again.mp3",
+        "size": "8121078",
+        "url": "https://upload-capstone-m4-grupo-14.s3.sa-east-1.amazonaws.com/bd029002e172debc15590de8d2182ecb-Cartoon+-+C+U+Again.mp3",
+        "description": "musica feita para dançar ao som dessa batida incrivel"
+    }
+]
+```
+
+1.2 - Para ler os dados de uma musica especifica e do seu autor, utilize a rota.<br>
+`GET /musics/<music_id> - formato de resposta - status 200`
 ```json
 {
-    "TESTE": "TESTE"
+    "id":"357b3141-b69a-4321-8cfa-a69f828c88fb",
+    "id_autor": "657b15a8-20ab-4834-a468-e6b967bfeda5",
+    "category": "eletronic",
+    "name": "Cartoon - C U Again.mp3",
+    "key": "bd029002e172debc15590de8d2182ecb-Cartoon - C U Again.mp3",
+    "size": "8121078",
+    "url": "https://upload-capstone-m4-grupo-14.s3.sa-east-1.amazonaws.com/bd029002e172debc15590de8d2182ecb-Cartoon+-+C+U+Again.mp3",
+    "description": "musica feita para dançar ao som dessa batida incrivel",
+    "rating": 0,
+    "name_autor": "Cartoon",
+    "age_autor": 24
 }
 ```
 
-1.2 - Para ler os dados de uma musica especifica e do seu autor, utilize a rota "/musics/<music_id>".
-
-1.3 - Para ler os dados de todos os autores de musica, utilize a rota "/autor".
+1.3 - Para ler os dados de todos os autores de musica, utilize a rota:<br>
+`GET /autor - formato de resposta - status 200`
+```json
+[
+    {
+        "id": "e6b967bfeda5-20ab-4834-a468-657b15a8",
+        "name": "Cartoon",
+        "idade": "27",
+        "id_user": "a69f828c88fb-b69a-4321-8cfa-357b3141"
+    }
+]
+```
 
 1.4 - Para ler os dados de um autor especifico, utilize a rota "/autor/<autor_id>".
 
@@ -72,7 +104,7 @@ Atenção! é necessário ter o token de autorização para acessar essa rota.
 Atenção! É necessário ter um token de autorização para acessar essa rota.
 
 
-2.0 - POST
+# <p align="center"> POST </p>
 
 2.1 - Para criar uma conta de usuario, utilize a rota "/user".
 
@@ -91,7 +123,7 @@ Atenção! É necessário ter um token de autorização para acessar essa rota.
 Atenção! É necessário ter um token de autorização para acessar essa rota.
 
 
-3.0 - PATCH:
+# <p align="center"> PATCH </p>
 
 3.1 - Para atualizar os dados de um usuario, utilize a rota "/user/<user_id>".
 Atenção! É necessário ter um token de autorização para acessar essa rota.
@@ -103,7 +135,7 @@ Atenção! É necessário ter um token de autorização para acessar essa rota.
 Atenção! É necessário ter um token de autorização para acessar essa rota.
 
 
-4.0 - DELETE:
+# <p align="center"> DELETE </p>
 
 4.1 - Para deletar uma musica de sua criação, utilize a rota "/music/<music_id>".
 OBS: não é possível deletar uma musica que você não fez upload.

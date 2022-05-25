@@ -1,5 +1,6 @@
 import { Entity, Column, PrimaryColumn, ManyToMany } from "typeorm";
 import { v4 as uuid } from "uuid";
+import { Musics } from "./music.entity";
 
 @Entity()
 export class Categories {

@@ -1,4 +1,4 @@
-import { Entity, Column, PrimaryColumn, ManyToOne, ManyToMany } from "typeorm";
+import { Entity, Column, PrimaryColumn, OneToOne, ManyToMany } from "typeorm";
 import { v4 as uuid } from "uuid";
 import { Categories } from "./category.entity";
 import { Users } from "./users.entity";
@@ -7,6 +7,12 @@ import { Users } from "./users.entity";
 export class Musics {
   @PrimaryColumn("uuid")
   readonly id: string;
+
+  @ManyToMany(() => Users)
+  users: Users;
+
+  @OneToOne(() => Categories)
+  categories: Categories;
 
   @Column()
   name: string;

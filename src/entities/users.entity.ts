@@ -19,9 +19,6 @@ export class Users {
   phone: string;
 
   @Column()
-  pix: string;
-
-  @Column()
   email: string;
 
   @Column()

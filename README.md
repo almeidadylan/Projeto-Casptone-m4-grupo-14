@@ -57,12 +57,13 @@ url base da aplicação no heroku: https://capstone-m4-grupo-14.herokuapp.com/
         "key": "bd029002e172debc15590de8d2182ecb-Cartoon - C U Again.mp3",
         "size": "8121078",
         "url": "https://upload-capstone-m4-grupo-14.s3.sa-east-1.amazonaws.com/bd029002e172debc15590de8d2182ecb-Cartoon+-+C+U+Again.mp3",
-        "description": "musica feita para dançar ao som dessa batida incrivel"
+        "description": "musica feita para dançar ao som dessa batida incrivel",
+        "created_at": "Wed May 25 2022 10:03:22 GMT-0400 (Amazon Standard Time)"
     }
 ]
 ```
 
-1.2 - Para ler os dados de uma musica especifica e do seu autor, utilize a rota.<br>
+1.2 - Para ler os dados de uma musica especifica e do seu autor, utilize a rota:<br>
 `GET /musics/<music_id> - formato de resposta - status 200`
 ```json
 {
@@ -87,19 +88,19 @@ url base da aplicação no heroku: https://capstone-m4-grupo-14.herokuapp.com/
     {
         "id": "e6b967bfeda5-20ab-4834-a468-657b15a8",
         "name": "Cartoon",
-        "idade": "27",
+        "age": "27",
         "id_user": "a69f828c88fb-b69a-4321-8cfa-357b3141"
     }
 ]
 ```
 
-1.4 - Para ler os dados de um autor especifico, utilize a rota: 
+1.4 - Para ler os dados de um autor especifico, utilize a rota: <br>
 `GET /autor/<id_autor> - formato de resposta - 200`
 ```json
 {
     "id": "8cfa-e6b967bfeda5-4834-357b3141",
     "name": "Bethoven",
-    "idade": "37",
+    "age": "37",
     "bith_date": "17/10/1770",
     "id_user": "a468-657b15a8-b69a-a69f828c88fb",
     "email": null,
@@ -109,57 +110,222 @@ url base da aplicação no heroku: https://capstone-m4-grupo-14.herokuapp.com/
 }
 ```
 
-1.5 - Para fazer uma listagem de todos os usuario, utilize a rota "/users".
+1.5 - Para fazer uma listagem de todos os usuario, utilize a rota:<br>
+`GET /users - formato de resposta - 200`
+```json
+[
+    {
+        "id": "8cfa-e6b967bfeda5-4834-357b3141",
+        "name": "MC Maycão",
+        "age": "37",
+        "bith_date": "17/10/1770",
+        "id_user": "a468-657b15a8-b69a-a69f828c88fb",
+        "email": "maycao@hotmail.com",
+        "password": "@hdw8X973VY/3",
+        "CPF": "094.537.450-73",
+        "phone": "(17) 99253-8415",
+        "pix": "094.537.450-73",
+        "id_adress": "a468-657b15a8-b69a-e6b967bfeda5"
+    }
+]
+```
 
-1.5 - Para ler os dados de um usuario especifico e o seu endereço, utilize a rota "/users/<user_id>".
+1.5 - Para ler os dados de um usuario especifico e o seu endereço, utilize a rota:<br>
 Atenção! é necessário ter o token de autorização para acessar essa rota.
+`GET /users/<user_id> - formato de resposta - 200`
+```json
+{
+    "id": "8cfa-e6b967bfeda5-4834-357b3141",
+    "name": "MC Maycão",
+    "age": "37",
+    "bith_date": "17/10/1770",
+    "id_user": "a468-657b15a8-b69a-a69f828c88fb",
+    "email": "maycao@hotmail.com",
+    "password": "@hdw8X973VY/3",
+    "CPF": "094.537.450-73",
+    "phone": "(17) 99253-8415",
+    "pix": "094.537.450-73",
+    "id_adress": "a468-657b15a8-b69a-e6b967bfeda5"
+}
+```
 
-1.6 - Para listar todas as playlists de um usuario, utilize a rota: "/playlist/<user_id>".
+1.6 - Para listar todas as playlists de um usuario, utilize a rota:<br>
 Atenção! É necessário ter um token de autorização para acessar essa rota.
+`GET /playlist/<user_id> - formato de resposta`
+```json
+[
+    {
+        "id": "a468-657b15a8-b69a-a69f828c88fb",
+        "name": "Brage Funk",
+        "favorite_playlist": false,
+        "id_music": "b69a-a69f828c88fb-a468-657b15a8-b69a",
+        "id_user": "a468-657b15a8-b69a-a69f828c88fb"
+    }
+]
+```
 
 
 # <p align="center">POST</p>
 
-2.1 - Para criar uma conta de usuario, utilize a rota "/user".
+2.1 - Para criar uma conta de usuario, utilize a rota:<br>
+`POST /user - formato de resposta - 201`
+```json
+{
+    "id": "8cfa-e6b967bfeda5-4834-357b3141",
+    "name": "MC Maycão",
+    "age": "37",
+    "bith_date": "17/10/1770",
+    "id_user": "a468-657b15a8-b69a-a69f828c88fb",
+    "email": "maycao@hotmail.com",
+    "password": "@hdw8X973VY/3",
+    "CPF": "094.537.450-73",
+    "phone": "(17) 99253-8415",
+    "pix": "094.537.450-73",
+    "id_adress": "a468-657b15a8-b69a-e6b967bfeda5"
+}
+```
 
-2.2 - Para fazer login em uma conta, utilize a rota "/login".
+2.2 - Para fazer login em uma conta, utilize a rota:<br>
+`POST /login - formato de resposta - 200`
+```json
+{
+    "email": "maycao@hotmail.com",
+    "password": "@hdw8X973VY/3",
+}
+```
 
-2.3 - Para criar fazer upload de uma musica, utilize a rota "/musics/<user_id>".
+2.3 - Para criar fazer upload de uma musica, utilize a rota:<br>
+Atenção! É necessário ter um token de autorização para acessar essa rota:
+`POST /musics - formato de resposta - 201`
+```json
+{
+	"status": "ok",
+	"message": "upload done",
+	"upload": {
+		"id": "dde12a10-1096-4411-b36d-f458290a1450",
+		"name": "Skillet-Hero.mp3",
+		"key": "e83e9e57c7249d619ec18875b8afe68c-Skillet-Hero.mp3",
+		"size": 3208653,
+		"url": "https://upload-capstone-m4-grupo-14.s3.amazonaws.com/e83e9e57c7249d619ec18875b8afe68c-Skillet-Hero.mp3"
+	}
+}
+```
+
+2.4 - Para adicionar um endereço para o usuario, utilize a rota:<br>
 Atenção! É necessário ter um token de autorização para acessar essa rota.
+`POST /adress/<user_id> - formato de resposta - 200`
+```json
+{
+    "CEP": "79040-660",
+    "país": "Brasil",
+    "estado": "Rio de Janeiro", 
+    "cidade": "Rio de Janeiro",
+    "bairro": "Bairro da Tijuca",
+    "rua": "Rua Primeiro de Março",
+    "numero": "134",
+    "complemento": "", 
+}
+```
 
-2.4 - Para adicionar um endereço para o usuario, utilize a rota "/address/<user_id>".
+2.5 - Para criar uma playlist de musica, utilize a rota:<br>
 Atenção! É necessário ter um token de autorização para acessar essa rota.
+`POST /playlist/<user_id> - formato de resposta - 201`
+```json
+{
+    "name": "Eletronica",
+    "favorite_playlist": true,
+    "id_music": "e6b967bfeda5-20ab-4834-a468-657b15a8",
+    "id_user": "8cfa-e6b967bfeda5-4834-357b3141"
+}
+```  
 
-2.5 - Para criar uma playlist de musica, utilize a rota "/playlist/<user_id>".
-Atenção! É necessário ter um token de autorização para acessar essa rota.  
-
-2.6 - Para adicionar uma musica que ja existe no banco de dados, utilize a rota "/playlist/<playlist_id>".
+2.6 - Para adicionar uma musica que ja existe no banco de dados a sua playlist, utilize a rota:<br>
 Atenção! É necessário ter um token de autorização para acessar essa rota.
-
+`POST /playlist/<playlist_id> - formato de resposta - 201`
+```json
+{
+    "music_id": "e6b967bfeda5-20ab-4834-a468-657b15a8"
+}
+```
 
 # <p align="center">PATCH</p>
 
-3.1 - Para atualizar os dados de um usuario, utilize a rota "/user/<user_id>".
+3.1 - Para atualizar os dados de um usuario, utilize a rota:<br>
 Atenção! É necessário ter um token de autorização para acessar essa rota.
+`PATCH /user/<user_id> - formato de resposta - 200`
+```json
+{
+    "id": "8cfa-e6b967bfeda5-4834-357b3141",
+    "name": "Maycon",
+    "age": "37",
+    "bith_date": "17/10/2000",
+    "email": "maycon@hotmail.com",
+    "password": "@hdw8X973VY/3",
+    "CPF": "094.537.450-73",
+    "phone": "(17) 98253-9415",
+    "pix": "094.537.450-73",
+}
+```
 
-3.2 - Para atualizar o endereço do usuario, utilize a rota "/user/<adress_id>".
+3.2 - Para atualizar o endereço do usuario, utilize a rota:<br>
 Atenção! É necessário ter um token de autorização para acessar essa rota.
+`PATCH /user/<adress_id> - formato de resposta - 200`
+```json
+{
+    "CEP": "79040-660",
+    "país": "Brasil",
+    "estado": "Rio de Janeiro", 
+    "cidade": "Rio de Janeiro",
+    "bairro": "Bairro da Tijuca",
+    "rua": "Avenida Atlântica",
+    "numero": "304",
+    "complemento": "", 
+}
+```
 
-3.3 - Para classificar uma musica de 1 a 5 estrelas, utilize a rota "/rating/<music_id>".
+3.3 - Para classificar uma musica de 1 a 5 estrelas, utilize a rota:<br>
 Atenção! É necessário ter um token de autorização para acessar essa rota.
+`PATCH /rating/<music_id> - formato de resposta - 200`
+```json
+{
+    "rating": 5
+}
+```
 
 
 # <p align="center">DELETE</p>
 
-4.1 - Para deletar uma musica de sua criação, utilize a rota "/music/<music_id>".
+4.1 - Para deletar uma musica de sua criação, utilize a rota:<br>
 OBS: não é possível deletar uma musica que você não fez upload.
 Atenção! É necessário ter um token de autorização para acessar essa rota.
+`DELETE /music/<music_id> - formato de resposta - 200`
+```json
+{
+    "status": "ok",
+    "message": "music deleted"
+}
 
-4.2 - Para deletar uma playlist, utilize a rota "/playlist/<playlist_id>".
-Atenção! É necessário ter um token de autorização para acessar essa rota.
+```
 
-4.3 - Para deletar um usuario, utilize a rota "/user/<user_id>".
+4.2 - Para deletar uma playlist, utilize a rota:<br>
 Atenção! É necessário ter um token de autorização para acessar essa rota.
+`DELETE /playlist/<playlist_id> - formato de resposta - 200`
+```json
+{
+    "status": "ok",
+    "message": "playlist deleted"
+}
+```
+
+4.3 - Para deletar um usuario, utilize a rota:<br>
+Atenção! É necessário ter um token de autorização para acessar essa rota.
+`DELETE /user/<user_id> - formato de resposta - 200`
+```json
+{
+    "status": "ok",
+    "message": "user deleted"
+}
+```
 
 #  Tecnologias
 

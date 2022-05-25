@@ -93,7 +93,21 @@ url base da aplicação no heroku: https://capstone-m4-grupo-14.herokuapp.com/
 ]
 ```
 
-1.4 - Para ler os dados de um autor especifico, utilize a rota "/autor/<autor_id>".
+1.4 - Para ler os dados de um autor especifico, utilize a rota: 
+`GET /autor/<id_autor> - formato de resposta - 200`
+```json
+{
+    "id": "8cfa-e6b967bfeda5-4834-357b3141",
+    "name": "Bethoven",
+    "idade": "37",
+    "bith_date": "17/10/1770",
+    "id_user": "a468-657b15a8-b69a-a69f828c88fb",
+    "email": null,
+    "password": null,
+    "CPF": null,
+    "phone": null
+}
+```
 
 1.5 - Para fazer uma listagem de todos os usuario, utilize a rota "/users".
 
@@ -104,7 +118,7 @@ Atenção! é necessário ter o token de autorização para acessar essa rota.
 Atenção! É necessário ter um token de autorização para acessar essa rota.
 
 
-# <p align="center"> POST </p>
+# <p align="center">POST</p>
 
 2.1 - Para criar uma conta de usuario, utilize a rota "/user".
 
@@ -123,7 +137,7 @@ Atenção! É necessário ter um token de autorização para acessar essa rota.
 Atenção! É necessário ter um token de autorização para acessar essa rota.
 
 
-# <p align="center"> PATCH </p>
+# <p align="center">PATCH</p>
 
 3.1 - Para atualizar os dados de um usuario, utilize a rota "/user/<user_id>".
 Atenção! É necessário ter um token de autorização para acessar essa rota.
@@ -135,7 +149,7 @@ Atenção! É necessário ter um token de autorização para acessar essa rota.
 Atenção! É necessário ter um token de autorização para acessar essa rota.
 
 
-# <p align="center"> DELETE </p>
+# <p align="center">DELETE</p>
 
 4.1 - Para deletar uma musica de sua criação, utilize a rota "/music/<music_id>".
 OBS: não é possível deletar uma musica que você não fez upload.

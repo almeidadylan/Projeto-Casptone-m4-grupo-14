@@ -10,6 +10,7 @@ const userCreateService = async ({
   cpf,
   birth_date,
   phone,
+  pix,
   age,
 }: IUserCreate) => {
   const userRepository = AppDataSource.getRepository(Users);
@@ -28,6 +29,7 @@ const userCreateService = async ({
   user.CPF = bcrypt.hashSync(cpf, 11);
   user.birth_date = birth_date;
   user.phone = phone + "";
+  user.pix = pix;
   user.age = age;
 
   userRepository.create(user);

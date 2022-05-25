@@ -21,6 +21,7 @@ routes.get("/categories", listCategoriesController);
 routes.get("/categories/:name_id", listCategoriesByNameOrIdController);
 routes.post(
   "/music",
+  tokenAuth,
   multer(multerConfig).single("file"),
   uploadMusicController
 );

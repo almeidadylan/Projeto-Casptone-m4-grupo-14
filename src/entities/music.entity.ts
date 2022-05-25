@@ -1,35 +1,22 @@
-import { Entity, Column, PrimaryColumn, DataSource, ManyToOne, ManyToMany } from "typeorm";
+import { Entity, Column, PrimaryColumn, ManyToOne, ManyToMany } from "typeorm";
 import { v4 as uuid } from "uuid";
-import { Categories } from "./category.entity";
-import { Users } from "./users.entity";
- 
+
 @Entity()
-export class Music {
+export class Musics {
   @PrimaryColumn("uuid")
   readonly id: string;
 
-  @ManyToOne(() => Users)
-  user: Users;
-
-  @ManyToMany(() => Categories)
-  category: Categories;
-
   @Column()
   name: string;
-
-  pix: string;
 
   @Column()
   url: string;
 
   @Column()
-  description: string;
+  id_user: string;
 
   @Column()
-  id_user: number;
-
-  @Column()
-  id_category: number;
+  id_category: string;
 
   constructor() {
     if (!this.id) {

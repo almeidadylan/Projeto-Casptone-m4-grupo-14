@@ -1,9 +1,20 @@
 import { Request, Response } from "express";
 import { IUpload } from "../../interfaces/upload";
 import { v4 as uuid } from "uuid";
+import createMusicService from "../../services/musics/uploadMusic.service";
+import jwt from "jsonwebtoken";
+import { AppDataSource } from "../../data-source";
+import { Users } from "../../entities/users.entity";
 
-const uploadMusicController = async (request: Request, res: Response) => {
+const uploadMusicService = async (request: Request, res: Response) => {
   try {
+    const token = request.headers.authorization?.split(" ")[1] + "";
+    const decoded: any = jwt.decode(token);
+    const userRepository = AppDataSource.getRepository(Users);
+    const users = await userRepository.find();
+
+    const user = users.find((user) => user.email === decoded!.email);
+
     const { originalname, key, size, location } = (request as any).file;
 
     const upload: IUpload = {
@@ -14,7 +25,13 @@ const uploadMusicController = async (request: Request, res: Response) => {
       url: location,
     };
 
-    res.json({
+    const name = originalname;
+    const url = location;
+    const id_user = user?.id + "";
+    const id_category = request.headers.id_category + "";
+
+    await createMusicService({ name, url, id_user, id_category });
+    return res.status(201).json({
       status: "ok",
       message: "upload done",
       upload: upload,
@@ -29,4 +46,4 @@ const uploadMusicController = async (request: Request, res: Response) => {
   }
 };
 
-export default uploadMusicController;
+export default uploadMusicService;

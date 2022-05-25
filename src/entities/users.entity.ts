@@ -1,4 +1,4 @@
-import { Entity, Column, PrimaryColumn, DataSource, ManyToMany, OneToMany, ManyToOne } from "typeorm";
+import { Entity, Column, PrimaryColumn } from "typeorm";
 import { v4 as uuid } from "uuid";
 
 @Entity()
@@ -17,9 +17,6 @@ export class Users {
 
   @Column()
   phone: string;
-
-  @Column()
-  pix: string;
 
   @Column()
   email: string;

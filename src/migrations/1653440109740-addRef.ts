@@ -1,8 +1,6 @@
 import { MigrationInterface, QueryRunner, TableForeignKey } from "typeorm";
 
-export class addRefToMusicsMigration1652903062749
-  implements MigrationInterface
-{
+export class addRef1653440109740 implements MigrationInterface {
   public async up(queryRunner: QueryRunner): Promise<void> {
     await queryRunner.createForeignKey(
       "musics",

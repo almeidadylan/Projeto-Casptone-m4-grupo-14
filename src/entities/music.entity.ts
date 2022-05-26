@@ -30,7 +30,7 @@ export class Musics {
   letter?: string;
 
   @Column({ nullable: true })
-  size?: string;
+  size?: number;
 
   @Column()
   created_at: string;

@@ -9,7 +9,7 @@ const userLoginController = async (req: Request, res: Response) => {
     return res.status(201).json({ token });
   } catch (err) {
     if (err instanceof Error) {
-      return res.status(401).send({ error: err.name, message: err.message });
+      return res.status(401).json({ error: err.name, message: err.message });
     }
   }
 };

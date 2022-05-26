@@ -12,7 +12,7 @@ const listCategoriesByNameOrIdController = async (
     return res.status(200).json(categories);
   } catch (err) {
     if (err instanceof Error) {
-      return res.status(400).send({ error: err.name, message: err.message });
+      return res.status(400).json({ error: err.name, message: err.message });
     }
   }
 };

@@ -21,8 +21,6 @@ const createMusicService = async ({
   music.letter = letter;
   music.size = transforBitsInMegabytes(size);
 
-  console.log(music);
-
   musicRepository.create(music);
   await musicRepository.save(music);
 

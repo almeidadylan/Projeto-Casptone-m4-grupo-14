@@ -10,7 +10,7 @@ const infoUniqueMusicController = async (req: Request, res: Response) => {
 
         return res.status(200).json(music);
     } catch (err) {
-        if ( err instanceof AppError ) {
+        if ( err instanceof Error ) {
             return res.status(400).json({
                 status: "error",
                 message: "invalid id"

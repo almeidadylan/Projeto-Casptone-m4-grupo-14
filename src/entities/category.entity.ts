@@ -13,4 +13,9 @@ export class Categories {
   @Column()
   name: string;
 
+  constructor() {
+    if (!this.id) {
+      this.id = uuid();
+    }
+  }
 }

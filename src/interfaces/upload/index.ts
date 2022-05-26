@@ -21,3 +21,8 @@ export interface IRequestUpload {
   size: number;
   location: string;
 }
+
+export interface IDeleteMusic {
+  id: string;
+  token: string;
+}

@@ -1,0 +1,15 @@
+import { AppDataSource } from "../../data-source";
+import { Users } from "../../entities/user.entity";
+
+const userListOneService = async (id: string) => {
+  const userRepository = AppDataSource.getRepository(Users);
+  const users = await userRepository.findOne({ where: { id } });
+
+  if (!users) {
+    throw new Error("Not found any user with this id");
+  }
+
+  return users;
+};
+
+export default userListOneService;

@@ -8,3 +8,15 @@ export interface IUserCreate {
   pix: string;
   age: number;
 }
+
+export interface IUserUpdate {
+  id: string;
+  name: string;
+  email: string;
+  password: string;
+  cpf: string;
+  birth_date: string;
+  phone: number;
+  pix: string;
+  age: number;
+}

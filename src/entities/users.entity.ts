@@ -12,28 +12,25 @@ export class Users {
 
   @Column()
   name: string;
-
-  @Column()
-  CPF: string;
-
-  @Column({
-    nullable: true
-  })
-  birth_date: string;
-
-  @Column({
-    nullable: true
-  })
-  age: number;
-
-  @Column()
-  phone: string;
-
+  
   @Column()
   email: string;
 
   @Column()
+  CPF: string;
+
+  @Column()
+  birth_date: string;
+
+  @Column()
+  phone: string;
+
+
+  @Column()
   password: string;
+
+  @Column()
+  age: number;
 
   constructor() {
     if (!this.id) {
@@ -41,4 +38,3 @@ export class Users {
     }
   }
 }
-

@@ -1,4 +1,4 @@
-import { Entity, Column, PrimaryColumn, ManyToOne, ManyToMany, CreateDateColumn } from "typeorm";
+import { Entity, Column, PrimaryColumn, OneToOne, ManyToMany } from "typeorm";
 import { v4 as uuid } from "uuid";
 import { Categories } from "./category.entity";
 import { Users } from "./users.entity";
@@ -11,7 +11,7 @@ export class Musics {
   @ManyToMany(() => Users)
   users: Users;
 
-  @ManyToOne(() => Categories)
+  @OneToOne(() => Categories)
   categories: Categories;
 
   @Column()
@@ -20,29 +20,27 @@ export class Musics {
   @Column()
   url: string;
 
-  @Column({
-    nullable: true
-  })
-  letter?: string;
-
-  @Column({
-    nullable: true
-  })
-  size?: string;
-
   @Column()
   id_user: string;
 
   @Column()
   id_category: string;
 
-  @CreateDateColumn()
+  @Column({ nullable: true })
+  letter?: string;
+
+  @Column({ nullable: true })
+  size?: string;
+
+  @Column()
   created_at: string;
 
   constructor() {
     if (!this.id) {
       this.id = uuid();
     }
+    if (!this.created_at) {
+      this.created_at = new Date() + "";
+    }
   }
 }
-

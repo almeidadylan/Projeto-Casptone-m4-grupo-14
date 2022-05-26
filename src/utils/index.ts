@@ -1,4 +1,5 @@
 export const transforBitsInMegabytes = (number: number) => {
+    //const num =  Number.parseInt(number)
     const div1 = number / 1024;
     const div2 = div1 / 1024;
 

@@ -1,4 +1,4 @@
-import { Entity, Column, PrimaryColumn, OneToOne, ManyToMany } from "typeorm";
+import { Entity, Column, PrimaryColumn, OneToOne } from "typeorm";
 import { v4 as uuid } from "uuid";
 import { Musics } from "./music.entity";
 
@@ -7,7 +7,7 @@ export class Categories {
   @PrimaryColumn("uuid")
   readonly id: string;
 
-  @ManyToMany(() => Musics, (musics) => musics.id_category)
+  @OneToOne(() => Musics, (musics) => musics.id_category)
   musics: Musics;
 
   @Column()

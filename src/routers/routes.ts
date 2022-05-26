@@ -8,6 +8,8 @@ import listCategoriesByNameOrIdController from "../controllers/categories/listCa
 import uploadMusicController from "../controllers/musics/uploadMusic.controller";
 import userCreateController from "../controllers/users/userCreate.controller";
 import userLoginController from "../controllers/users/userLogin.controller";
+import listAllMusicsController from "../controllers/musics/listAllMusics.controller";
+import deleteMusicController from "../controllers/musics/deleteMusic.controller";
 const multerConfig = require("../config/multer")
 
 
@@ -19,6 +21,8 @@ routes.post("/categories", createCategoryController);
 routes.delete("/categories/:id", deleteCategoryController);
 routes.get("/categories", listCategoriesController);
 routes.get("/categories/:name_id", listCategoriesByNameOrIdController);
-routes.post("/music", multer(multerConfig).single("file"), uploadMusicController)
+routes.post("/music", multer(multerConfig).single("file"), uploadMusicController);
+routes.get("/musics", listAllMusicsController);
+routes.delete("musics/:id", deleteMusicController);
 
 export default routes;

@@ -1,6 +1,8 @@
-import express, { NextFunction, Request, Response } from "express";
-import { AppError } from "./errors/appErros";
-import Routes from "./routers/routes";
+import express from "express";
+import globalErrorsMiddleware from "./middlewares/globalErrors.middleware";
+import routerUsers from "./routers/routes.user";
+import routerMusics from "./routers/routes.music";
+import routerCategory from "./routers/routes.category"; 
 
 const app = express();
 
@@ -10,22 +12,13 @@ app.use(express.json());
 
 app.use(express.urlencoded({ extended: true }))
 
-app.use(Routes);
+app.use(routerUsers);
 
-app.use((err: Error, req: Request, res: Response, _: NextFunction) => {
-    if ( err instanceof AppError ) {
-        return res.status(err.statusCode).json({
-            status: "error",
-            messsage: err. message
-        })
-    }
+app.use(routerMusics);
 
-    console.error(err)
-    return res.status(500).json({
-        status: "error",
-        message: "Internal server error"
-    })
-})
+app.use(routerCategory);
+
+app.use(globalErrorsMiddleware)
 
 app.listen(port, () => {
     console.log(`server rodando na porta ${port}`)

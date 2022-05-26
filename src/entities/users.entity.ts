@@ -12,23 +12,24 @@ export class Users {
   @Column()
   CPF: string;
 
-  @Column()
+  @Column({
+    nullable: true
+  })
   birth_date: string;
+
+  @Column({
+    nullable: true
+  })
+  age: number;
 
   @Column()
   phone: string;
-
-  @Column()
-  pix: string;
 
   @Column()
   email: string;
 
   @Column()
   password: string;
-
-  @Column()
-  age: number;
 
   constructor() {
     if (!this.id) {

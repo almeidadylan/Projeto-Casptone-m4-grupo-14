@@ -5,7 +5,6 @@ export interface IUserCreate {
   cpf: string;
   birth_date: string;
   phone: number;
-  pix: string;
   age: number;
 }
 

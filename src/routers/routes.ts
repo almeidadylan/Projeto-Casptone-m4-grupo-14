@@ -11,6 +11,7 @@ import userLoginController from "../controllers/users/userLogin.controller";
 import listAllMusicsController from "../controllers/musics/listAllMusics.controller";
 import deleteMusicController from "../controllers/musics/deleteMusic.controller";
 import showUserController from "../controllers/users/showUser.controller";
+import deleteUserController from "../controllers/users/deleteUser.controller";
 const multerConfig = require("../config/multer")
 
 
@@ -26,5 +27,5 @@ routes.post("/music", multer(multerConfig).single("file"), uploadMusicController
 routes.get("/musics", listAllMusicsController);
 routes.delete("musics/:id", deleteMusicController);
 routes.get("users/:id", showUserController);
-
+routes.delete("users/:id", deleteUserController);
 export default routes;

@@ -28,6 +28,11 @@ export class createMusicsTable1653440093391 implements MigrationInterface {
             name: "id_category",
             type: "uuid",
           },
+          {
+            name: "letter",
+            type: "varchar",
+            isNullable: true,
+          },
         ],
       })
     );

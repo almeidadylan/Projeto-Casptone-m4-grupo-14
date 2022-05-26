@@ -26,6 +26,9 @@ export class Musics {
   @Column()
   id_category: string;
 
+  @Column({ nullable: true })
+  letter?: string;
+
   constructor() {
     if (!this.id) {
       this.id = uuid();

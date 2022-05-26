@@ -28,9 +28,10 @@ const uploadMusicController = async (request: Request, res: Response) => {
     const name = originalname;
     const url = location;
     const id_user = user?.id + "";
-    const id_category = request.headers.id_category + "";
+    const id_category = request.body.id_category;
+    const letter = request.body.letter;
 
-    await createMusicService({ name, url, id_user, id_category });
+    await createMusicService({ name, url, id_user, id_category, letter, size });
     return res.status(201).json({
       status: "ok",
       message: "upload done",

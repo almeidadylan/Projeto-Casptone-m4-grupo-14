@@ -1,4 +1,4 @@
-import { Entity, Column, PrimaryColumn, OneToOne, ManyToOne, OneToMany, ManyToMany } from "typeorm";
+import { Entity, Column, PrimaryColumn, OneToOne, ManyToMany } from "typeorm";
 import { v4 as uuid } from "uuid";
 import { Musics } from "./music.entity";
 

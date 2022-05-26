@@ -11,7 +11,7 @@ export class Musics {
   @ManyToMany(() => Users)
   users: Users;
 
-  @ManyToMany(() => Categories)
+  @ManyToOne(() => Categories)
   categories: Categories;
 
   @Column()
@@ -23,12 +23,12 @@ export class Musics {
   @Column({
     nullable: true
   })
-  letter: string;
+  letter?: string;
 
   @Column({
     nullable: true
   })
-  size: string;
+  size?: string;
 
   @Column()
   id_user: string;

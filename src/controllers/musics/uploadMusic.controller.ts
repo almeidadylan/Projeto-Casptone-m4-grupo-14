@@ -31,7 +31,7 @@ const uploadMusicService = async (request: Request, res: Response) => {
     const id_category = request.body.id_category;
     const letter = request.body.letter;
 
-    await createMusicService({ name, url, id_user, id_category, letter });
+    await createMusicService({ name, url, id_user, id_category, letter, size });
     return res.status(201).json({
       status: "ok",
       message: "upload done",

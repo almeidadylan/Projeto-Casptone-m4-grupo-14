@@ -29,9 +29,18 @@ export class Musics {
   @Column({ nullable: true })
   letter?: string;
 
+  @Column({ nullable: true })
+  size?: number;
+
+  @Column()
+  created_at: string;
+
   constructor() {
     if (!this.id) {
       this.id = uuid();
+    }
+    if (!this.created_at) {
+      this.created_at = new Date() + "";
     }
   }
 }

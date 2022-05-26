@@ -12,4 +12,5 @@ export interface ICreateMusic {
   id_user: string;
   id_category: string;
   letter?: string;
+  size?: number;
 }

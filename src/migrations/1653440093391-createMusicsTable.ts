@@ -33,6 +33,15 @@ export class createMusicsTable1653440093391 implements MigrationInterface {
             type: "varchar",
             isNullable: true,
           },
+          {
+            name: "size",
+            type: "numeric",
+            isNullable: true,
+          },
+          {
+            name: "created_at",
+            type: "varchar",
+          },
         ],
       })
     );

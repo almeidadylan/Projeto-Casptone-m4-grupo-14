@@ -8,6 +8,7 @@ const createMusicService = async ({
   id_user,
   id_category,
   letter,
+  size,
 }: ICreateMusic) => {
   const musicRepository = AppDataSource.getRepository(Musics);
 
@@ -17,6 +18,7 @@ const createMusicService = async ({
   music.id_user = id_user;
   music.id_category = id_category;
   music.letter = letter;
+  music.size = size;
 
   console.log(music);
 

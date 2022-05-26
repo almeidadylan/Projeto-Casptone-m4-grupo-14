@@ -1,5 +1,5 @@
 import { Router } from "express";
-import tokenAuth from "../middlewares/tokenAuth";
+import tokenAuth from "../middlewares/tokenAuth.middleware";
 
 import createCategoryController from "../controllers/categories/createCategory.controller";
 import deleteCategoryController from "../controllers/categories/deleteCategory.controller";

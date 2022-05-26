@@ -4,7 +4,7 @@ import multer from "multer";
 import infoUniqueMusicController from "../controllers/musics/infoUniqueMusic.controller";
 import listAllMusicsController from "../controllers/musics/listAllMusics.contreoller";
 import uploadMusicController from "../controllers/musics/uploadMusic.controller";
-import tokenAuth from "../middlewares/tokenAuth";
+import tokenAuth from "../middlewares/tokenAuth.middleware";
 
 const multerConfig = require("../config/multer")
 

@@ -13,3 +13,7 @@ export interface IUserLogin {
   email: string;
   password: string;
 }
+
+export interface GetUser {
+  id: string;
+}

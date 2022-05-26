@@ -3,8 +3,7 @@ import userCreateService from "../../services/user/userCreate.service";
 
 const userCreateController = async (req: Request, res: Response) => {
   try {
-    const { name, email, password, cpf, birth_date, phone, age } =
-      req.body;
+    const { name, email, password, cpf, birth_date, phone, age } = req.body;
 
     const newUser = await userCreateService({
       name,
@@ -16,10 +15,10 @@ const userCreateController = async (req: Request, res: Response) => {
       age,
     });
 
-    return res.status(201).send(newUser);
+    return res.status(201).json(newUser);
   } catch (err) {
     if (err instanceof Error) {
-      return res.status(400).send({ error: err.name, message: err.message });
+      return res.status(400).json({ error: err.name, message: err.message });
     }
   }
 };

@@ -1,16 +1,26 @@
-import { IUpload } from "../../interfaces/upload";
-import { v4 as uuid } from "uuid";
+import { AppDataSource } from "../../data-source";
+import { Musics } from "../../entities/music.entity";
+import { ICreateMusic } from "../../interfaces/upload";
 
-const uploadMusicService = async ( originalname: string, key: string, size: number, location: string) => {
-    const upload: IUpload = {
-        id: uuid(),
-        name: originalname,
-        key,
-        size,
-        url: location,
-    }
+const createMusicService = async ({
+  name,
+  url,
+  id_user,
+  id_category,
+}: ICreateMusic) => {
+  const musicRepository = AppDataSource.getRepository(Musics);
 
-    return upload;
-} 
+  const music = new Musics();
+  music.name = name;
+  music.url = url;
+  music.id_user = id_user;
+  music.id_category = id_category;
+  console.log(music);
 
-export default uploadMusicService;
+  musicRepository.create(music);
+  await musicRepository.save(music);
+
+  return music;
+};
+
+export default createMusicService;

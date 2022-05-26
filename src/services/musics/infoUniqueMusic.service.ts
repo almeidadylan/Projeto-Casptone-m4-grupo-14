@@ -1,8 +1,8 @@
 import { AppDataSource } from "../../data-source";
-import { Music } from "../../entities/music.entity";
+import { Musics } from "../../entities/music.entity";
 
 const infoUniqueMusicService = async (id: string) => {
-    const musicRepository = AppDataSource.getRepository(Music);
+    const musicRepository = AppDataSource.getRepository(Musics);
 
     const music = await musicRepository.find({
         where: { id: id }

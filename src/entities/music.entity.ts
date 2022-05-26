@@ -1,18 +1,18 @@
-import { Entity, Column, PrimaryColumn, DataSource, ManyToOne, ManyToMany, CreateDateColumn } from "typeorm";
+import { Entity, Column, PrimaryColumn, ManyToOne, ManyToMany, CreateDateColumn } from "typeorm";
 import { v4 as uuid } from "uuid";
 import { Categories } from "./category.entity";
 import { Users } from "./users.entity";
- 
+
 @Entity()
-export class Music {
+export class Musics {
   @PrimaryColumn("uuid")
   readonly id: string;
 
-  @ManyToOne(() => Users)
-  user: Users;
+  @ManyToMany(() => Users)
+  users: Users;
 
   @ManyToMany(() => Categories)
-  category: Categories;
+  categories: Categories;
 
   @Column()
   name: string;
@@ -31,10 +31,10 @@ export class Music {
   size: string;
 
   @Column()
-  id_user: number;
+  id_user: string;
 
   @Column()
-  id_category: number;
+  id_category: string;
 
   @CreateDateColumn()
   created_at: string;

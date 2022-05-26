@@ -7,8 +7,9 @@ const tokenAuth = (
   next: NextFunction
 ) => {
   const authHeader = request.headers.authorization;
+  console.log(authHeader);
 
-  if (!authHeader) {
+  if (!authHeader?.split(" ")[1]) {
     return response.status(401).json({ message: "JWT is missing" });
   }
   try {

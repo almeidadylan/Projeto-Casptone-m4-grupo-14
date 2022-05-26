@@ -1,4 +1,4 @@
-import { Users } from "../../entities/user.entity";
+import { Users } from "../../entities/users.entity";
 import { AppDataSource } from "../../data-source";
 
 const userListService = async () => {

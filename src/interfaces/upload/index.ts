@@ -1,7 +1,21 @@
 export interface IUpload {
-    id: string;
-    name: string;
-    key: string;
-    size: number;
-    url: string;
+  id: string;
+  name: string;
+  key: string;
+  size: number;
+  url: string;
+}
+
+export interface ICreateMusic {
+  name: string;
+  url: string;
+  id_user: string;
+  id_category: string;
+}
+
+export interface IRequestUpload {
+  originalname: string;
+  key: string;
+  size: number;
+  location: string;
 }

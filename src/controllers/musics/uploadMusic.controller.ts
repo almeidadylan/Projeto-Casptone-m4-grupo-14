@@ -21,6 +21,6 @@ const uploadMusicController = async (request: Request, res: Response) => {
             })
         }
     }
-}
+};
 
 export default uploadMusicController;

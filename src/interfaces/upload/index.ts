@@ -14,3 +14,8 @@ export interface ICreateMusic {
   letter?: string;
   size?: number;
 }
+
+export interface IDeleteMusic {
+  id: string;
+  token: string;
+}

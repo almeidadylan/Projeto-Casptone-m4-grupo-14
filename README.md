@@ -3,17 +3,15 @@
 # Tabela de conteúdo
 
 <!--ts-->
-
-- [Tabela de conteúdo](#tabela-de-conteúdo)
-- [Sobre](#sobre)
-- [Integrantes](#integrantes)
-- [Aplicação](#aplicação)
-- [Rotas](#rotas)
-- [<p align="center">GET</p>](#get)
-- [<p align="center">POST</p>](#post)
-- [<p align="center">PATCH</p>](#patch)
-- [<p align="center">DELETE</p>](#delete)
-- [Tecnologias](#tecnologias)
+ - [Sobre](#Sobre)
+ - [Integrantes](#Integrantes)
+ - [Aplicação](#Aplicação)
+ - [Rotas](Rotas)
+    - [GET](#GET)
+    - [POST](#POST)
+    - [PATCH](#PATCH)
+    - [DELETE](DELETE)
+ - [Tecnologias](#Tecnologias)  
 <!--te-->
 
 <br>
@@ -82,7 +80,7 @@ url base da aplicação no heroku: https://capstone-m4-grupo-14.herokuapp.com/
 ```
 
 
-1.5 - Para fazer uma listagem de todos os usuario, utilize a rota:<br>
+1.3 - Para fazer uma listagem de todos os usuario, utilize a rota:<br>
 `GET /users - formato de resposta - 200`
 
 ```json
@@ -100,7 +98,7 @@ url base da aplicação no heroku: https://capstone-m4-grupo-14.herokuapp.com/
 ]
 ```
 
-1.5 - Para ler os dados de um usuario especifico, utilize a rota:<br>
+1.4 - Para ler os dados de um usuario especifico, utilize a rota:<br>
 `GET /users/<user_id> - formato de resposta - 200`
 
 ```json
@@ -115,6 +113,32 @@ url base da aplicação no heroku: https://capstone-m4-grupo-14.herokuapp.com/
   "age": 700
 }
 ```
+
+1.5 - Para ler os dados um estili musical, utilize a rota: <br>
+`GET /categories/ - formato de resposta - 200`
+
+```json
+[
+  {
+    "id": "b6ad452c-9217-4f9b-a9ae-9f5bc8fcc022",
+    "name": "Rock",
+  },
+  {
+    "id": "770ab26f-d2fb-4b9b-884b-d1841f67a4a5",
+    "name": "Música clássica"
+  }
+]
+```
+
+1.6 - Para ler os dados de uma categoria de musica especifica, utilize a rota: <br>
+`GET /categories/<id_category> - formato de resposta - 200`
+```json
+{
+		"id": "d0c2d241-3822-445d-943c-9da6499674d8",
+		"name": "Música de anime"
+}
+```
+
 
 
 # <p align="center">POST</p>
@@ -198,6 +222,24 @@ Atenção! É necessário ter um token de autorização para acessar essa rota:<
 }
 ```
 
+2.4 - Para criar uma categoria de musica, utilize a rota:<br>
+Atenção! É necessário ter um token de autorização para acessar essa rota.<br>
+`POST /categories formato de requisição`
+```json
+{
+  "name": "Heavy metal",
+}
+```
+
+`POST /categories/ - formato de resposta - 201`
+
+```json
+{
+  "id": "d0c2d241-3822-445d-943c-9da6499674d8",
+  "name": "Heavy metal"
+}
+```
+
 # <p align="center">PATCH</p>
 
 3.1 - Para atualizar os dados de um usuario, utilize a rota:<br>
@@ -243,8 +285,7 @@ Atenção! É necessário ter um token de autorização para acessar essa rota.<
 
 ```json
 {
-  "status": "ok",
-  "message": "music deleted"
+  "message": "Deleted music"
 }
 ```
 
@@ -254,8 +295,17 @@ Atenção! É necessário ter um token de autorização para acessar essa rota.<
 
 ```json
 {
-  "status": "ok",
-  "message": "user deleted"
+  "message": "Deleted user"
+}
+```
+
+4.3 - Para deletar uma categoria, utilize a rota:<br>
+Atenção! É necessário ter um token de autorização para acessar essa rota.<br>
+`DELETE /users/<user_id> - formato de resposta - 200`
+
+```json
+{
+  "message": "Deleted category"
 }
 ```
 
